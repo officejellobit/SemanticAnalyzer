@@ -30,6 +30,12 @@ namespace SemanticAnalyzer.Tests
         }
 
         [TestMethod]
+        public void Validate_OnePair_CascadeMultiple_OK()
+        {
+            Assert.IsTrue(_semanticAnalyzer.Validate("((This (looks) great!))", "()"));
+        }
+
+        [TestMethod]
         public void Validate_OnePair_NotOK()
         {
             Assert.IsFalse(_semanticAnalyzer.Validate("(This looks bad!", "()"));
