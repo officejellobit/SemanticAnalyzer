@@ -36,9 +36,15 @@ namespace SemanticAnalyzer.Tests
         }
 
         [TestMethod]
-        public void Validate_OnePair_NotOK()
+        public void Validate_OnePair_OnlyOpening_NotOK()
         {
             Assert.IsFalse(_semanticAnalyzer.Validate("(This looks bad!", "()"));
+        }
+
+        [TestMethod]
+        public void Validate_OnePair_OnlyClosing_NotOK()
+        {
+            Assert.IsFalse(_semanticAnalyzer.Validate("This looks bad!(", "()"));
         }
 
         [TestMethod]
